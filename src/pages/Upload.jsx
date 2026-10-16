@@ -10,7 +10,7 @@ export default function Upload({ addFiles, setPage }) {
   const receive = () => { if (!selected.length) return; addFiles(selected, docType); setPage('ocr') }
   return <>
     <div className="crumb">Trang chủ / Tải hồ sơ</div><h2>Tiếp nhận hồ sơ</h2>
-    <div className="card"><b>Định dạng hỗ trợ</b><div className="muted">JPG, JPEG, PNG, PDF • Dữ liệu được giữ trong bộ nhớ trình duyệt, chưa có backend/CSDL.</div></div>
+    <div className="card"><b>Định dạng hỗ trợ</b><div className="muted">JPG, JPEG, PNG, PDF • Dữ liệu được giữ trong bộ nhớ trình duyệt.</div></div>
     <div className="upload-grid">
       <div className="card">
         <label>Loại giấy tờ</label>
@@ -20,7 +20,7 @@ export default function Upload({ addFiles, setPage }) {
         {selected.length > 0 && <div className="file-list">{selected.map(f => <div className="file-row" key={`${f.name}-${f.size}`}><div><b>{f.name}</b><div className="muted">{ext(f.name)} • {formatSize(f.size)}</div></div><span className="badge yellow">Chờ xử lý</span></div>)}</div>}
         <button className="primary full" disabled={!selected.length} onClick={receive}>Tiếp nhận hồ sơ</button>
       </div>
-      <div className="card info-panel"><h3>Lưu ý</h3><p>Đây là bản frontend. File upload chưa được gửi đến server và chưa thực hiện OCR thật.</p><p>Không có dữ liệu mẫu được tạo sẵn khi bạn mở website.</p><p>Sau khi kết nối backend, khu vực này có thể hiển thị tiến trình tiền xử lý, OCR và đối chiếu.</p></div>
+      <div className="card info-panel"><h3>Lưu ý</h3><p>File upload hiện được xử lý trực tiếp trên trình duyệt.</p><p>Không có dữ liệu mẫu được tạo sẵn khi bạn mở website.</p></div>
     </div>
   </>
 }

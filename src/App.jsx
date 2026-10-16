@@ -22,5 +22,5 @@ export default function App(){
   if(page==='warnings') content=<Warnings/>
   if(page==='profile') content=<Profile/>
   if(page==='settings') content=<Settings/>
-  return <div className="app-shell"><div className={`sidebar-wrap ${mobileOpen?'open':''}`} onClick={()=>setMobileOpen(false)}><div onClick={e=>e.stopPropagation()}><Sidebar page={page} setPage={navigate}/></div></div><div className="main"><Header setMobileOpen={setMobileOpen}/><main className="content">{content}<footer>QNU Admission Frontend Demo • ReactJS • Không kết nối Backend/CSDL</footer></main></div></div>
+  return <div className="app-shell"><div className={`sidebar-wrap ${mobileOpen?'open':''}`} onClick={()=>setMobileOpen(false)}><div onClick={e=>e.stopPropagation()}><Sidebar page={page} setPage={navigate}/></div></div><div className="main"><Header setMobileOpen={setMobileOpen}/><main className="content">{content}<footer>QNU Admission • ReactJS</footer></main></div></div>
 }

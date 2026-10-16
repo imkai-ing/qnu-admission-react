@@ -22,15 +22,15 @@ export default function Sidebar({ page, setPage }) {
         <img src="/logo.png" alt="Logo Trường Đại học Quy Nhơn" />
         <div className="brand-name">TRƯỜNG ĐẠI HỌC QUY NHƠN</div>
       </div>
-      <div className="profile-card">
-        <div className="avatar-small">?</div>
-        <div><div className="profile-name">Chưa đăng nhập</div><div className="profile-role">Vui lòng đăng nhập để tiếp tục</div></div>
+      <div className="sidebar-auth-actions">
+        <button className="btn-auth btn-login" onClick={() => console.log('Click: Đăng nhập')}>Đăng nhập</button>
+        <button className="btn-auth btn-register" onClick={() => console.log('Click: Đăng ký')}>Đăng ký</button>
       </div>
       <div className="nav-heading">TRANG CHÍNH</div>
       {navMain.map(renderItem)}
       <div className="nav-heading system-heading">HỆ THỐNG</div>
       {navSystem.map(renderItem)}
-      <div className="sidebar-footer">Frontend demo • ReactJS<br/>Backend / CSDL chưa kết nối</div>
+      <div className="sidebar-footer">Trường Đại học Quy Nhơn</div>
     </aside>
   )
 }
