@@ -1,78 +1,50 @@
-const mockUserData = {
-  fullName: 'NGUYỄN VĂN A',
-  avatarUrl: null, // Hoặc chữ viết tắt 'NA'
-  initials: 'NV',
-  email: 'nguyenvana@qnu.edu.vn',
-  phone: '0912 345 678',
-  organization: 'Trường Đại học Quy Nhơn',
-  department: 'Phòng Đào tạo & Tuyển sinh',
-  role: 'Cán bộ Kiểm duyệt Hồ sơ',
-  permissions: ['Duyệt hồ sơ', 'Xem OCR', 'Xuất báo cáo', 'Cảnh báo sai lệch'],
-  createdAt: '15/01/2024',
+const mockStudentData = {
+  fullName: 'Trần Minh Anh',
+  initials: 'TMA',
+  dateOfBirth: '12/05/2007',
+  gender: 'Nữ',
+  ethnicity: 'Kinh',
+  birthplace: 'Quy Nhơn, Bình Định',
+  phone: '0901 234 567',
+  email: 'minhanh.demo@example.com',
+  address: '123 Đường Mẫu, Phường Demo, TP. Quy Nhơn, Tỉnh Bình Định',
 }
 
-function AvatarCard({ user }) {
+function AvatarCard({ student }) {
   return (
     <div className="card profile-avatar-card">
       <div className="avatar-wrapper">
-        {user.avatarUrl ? (
-          <img src={user.avatarUrl} alt={user.fullName} className="avatar-img" />
-        ) : (
-          <div className="avatar-circle">{user.initials}</div>
-        )}
+        <div className="avatar-circle">{student.initials}</div>
       </div>
-      <h3 className="profile-user-name">{user.fullName}</h3>
-      <div className="profile-subtext">{user.role}</div>
+      <h3 className="profile-user-name">{student.fullName}</h3>
+      <div className="profile-subtext">Thí sinh</div>
     </div>
   )
 }
 
-function InfoCard({ user }) {
+function InfoCard({ student }) {
+  const fields = [
+    ['Họ và tên', student.fullName],
+    ['Ngày sinh', student.dateOfBirth],
+    ['Giới tính', student.gender],
+    ['Dân tộc', student.ethnicity],
+    ['Nơi sinh', student.birthplace],
+    ['Số điện thoại', student.phone],
+    ['Email', student.email],
+    ['Địa chỉ liên lạc', student.address, true],
+  ]
+
   return (
     <div className="card profile-info-card">
       <div className="info-group">
-        <h4 className="group-title">LIÊN HỆ & CÔNG TÁC</h4>
+        <h4 className="group-title">THÔNG TIN THÍ SINH</h4>
         <div className="info-grid">
-          <div className="info-item">
-            <span className="info-label">Email</span>
-            <span className="info-value">{user.email}</span>
-          </div>
-          <div className="info-item">
-            <span className="info-label">Số điện thoại</span>
-            <span className="info-value">{user.phone}</span>
-          </div>
-          <div className="info-item">
-            <span className="info-label">Đơn vị công tác</span>
-            <span className="info-value">{user.organization}</span>
-          </div>
-          <div className="info-item">
-            <span className="info-label">Phòng ban</span>
-            <span className="info-value">{user.department}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="info-group">
-        <h4 className="group-title">VAI TRÒ & PHÂN QUYỀN</h4>
-        <div className="info-grid">
-          <div className="info-item">
-            <span className="info-label">Vai trò</span>
-            <span className="info-value font-bold">{user.role}</span>
-          </div>
-          <div className="info-item">
-            <span className="info-label">Ngày tạo tài khoản</span>
-            <span className="info-value">{user.createdAt}</span>
-          </div>
-          <div className="info-item full-width">
-            <span className="info-label">Quyền hạn</span>
-            <div className="permission-tags">
-              {user.permissions.map((perm, index) => (
-                <span key={index} className="perm-tag">
-                  {perm}
-                </span>
-              ))}
+          {fields.map(([label, value, fullWidth]) => (
+            <div className={`info-item${fullWidth ? ' full-width' : ''}`} key={label}>
+              <span className="info-label">{label}</span>
+              <span className="info-value">{value}</span>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -83,11 +55,11 @@ export default function Profile() {
   return (
     <>
       <div className="crumb">Trang cá nhân / Thông tin cá nhân</div>
-      <h2>Thông tin cán bộ</h2>
+      <h2>Thông tin thí sinh</h2>
 
       <div className="profile-layout-grid">
-        <AvatarCard user={mockUserData} />
-        <InfoCard user={mockUserData} />
+        <AvatarCard student={mockStudentData} />
+        <InfoCard student={mockStudentData} />
       </div>
     </>
   )

@@ -2,12 +2,10 @@ const navMain = [
   ['overview', '⌂', 'Tổng quan'],
   ['files', '▣', 'Hồ sơ tuyển sinh'],
   ['upload', '⇧', 'Tải hồ sơ'],
-  ['ocr', '▤', 'OCR & Đối chiếu'],
   ['warnings', '⚠', 'Cảnh báo'],
 ]
 const navSystem = [
   ['profile', '●', 'Thông tin cá nhân'],
-  ['settings', '⚙', 'Cấu hình'],
 ]
 
 export default function Sidebar({ page, setPage, onLogin, onRegister, onLogout, authenticated }) {

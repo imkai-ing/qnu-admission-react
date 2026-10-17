@@ -2,7 +2,6 @@ const operationLabels = {
   upload: 'tiếp nhận hồ sơ',
   approve: 'phê duyệt hồ sơ',
   supplement: 'yêu cầu bổ sung hồ sơ',
-  settings: 'thay đổi cấu hình',
 }
 
 export default function Login({ onSuccess, onSwitch, onHome, pendingOperation }) {
