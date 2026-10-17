@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Register({ onSwitch }) {
+export default function Register({ onSwitch, onHome }) {
   const [status, setStatus] = useState('')
 
   const submit = event => {
@@ -12,11 +12,12 @@ export default function Register({ onSwitch }) {
     }
     setStatus('Bản demo chưa tạo tài khoản thật. Hãy chuyển sang đăng nhập để thử luồng giao diện.')
   }
-
   return (
     <main className="auth-layout">
       <section className="auth-brand-panel">
-        <img src="/logo.png" alt="Logo Trường Đại học Quy Nhơn" />
+        <button className="auth-home-logo" type="button" onClick={onHome} aria-label="Về trang chủ QNU">
+          <img src="/logo.png" alt="Logo Trường Đại học Quy Nhơn" />
+        </button>
         <p className="auth-eyebrow">TRƯỜNG ĐẠI HỌC QUY NHƠN</p>
         <h1>Cổng tuyển sinh QNU</h1>
         <p className="auth-brand-copy">Hệ thống tiếp nhận và theo dõi hồ sơ tuyển sinh.</p>
@@ -36,11 +37,11 @@ export default function Register({ onSwitch }) {
           <input id="register-password" name="password" type="password" autoComplete="new-password" placeholder="Tạo mật khẩu" required />
           <label htmlFor="register-confirm-password">Xác nhận mật khẩu</label>
           <input id="register-confirm-password" name="confirm-password" type="password" autoComplete="new-password" placeholder="Nhập lại mật khẩu" required />
-          <button className="primary auth-submit" type="submit">Đăng ký demo</button>
+          <button className="primary auth-submit" type="submit">Đăng ký</button>
         </form>
         {status && <p className="auth-pending" role="status">{status}</p>}
-        <p className="auth-demo-note"><b>Lưu ý:</b> Thông tin không được gửi đi hay lưu lại. Đây không phải hệ thống đăng ký hoặc xác thực thật.</p>
         <p className="auth-switch">Đã có tài khoản? <button type="button" className="auth-link" onClick={() => onSwitch('login')}>Đăng nhập</button></p>
+        <p className="auth-home-link"><button type="button" className="auth-link" onClick={onHome}>Về trang chủ</button></p>
       </section>
     </main>
   )

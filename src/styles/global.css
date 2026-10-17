@@ -26,5 +26,12 @@
 .auth-return-notice{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 14px;margin-bottom:18px;border:1px solid #f0d2b5;border-radius:6px;background:#fff6ec;color:#684526;font-size:13px;line-height:1.5}
 .auth-return-notice button{border:0;background:none;color:inherit;font-size:20px;line-height:1;cursor:pointer}
 .auth-session{margin:18px 2px;padding:10px 12px;border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:12px;text-align:center}
+.auth-home-logo{align-self:flex-start;display:inline-grid;place-items:center;border:0;padding:0;background:transparent;cursor:pointer}
+.auth-home-logo img{margin:0}
+.auth-home-link{margin:12px 0 0;text-align:center}
 @media(max-width:760px){.auth-page{padding:20px}.auth-layout{max-width:540px;min-height:0;grid-template-columns:1fr}.auth-brand-panel{align-items:center;padding:28px 24px;text-align:center}.auth-brand-panel img{width:64px;height:64px;margin-bottom:12px}.auth-brand-panel h1{font-size:24px}.auth-brand-copy{max-width:360px}.auth-card{padding:32px 36px}}
 @media(max-width:420px){.auth-page{padding:12px}.auth-brand-panel{padding:24px 18px}.auth-card{padding:26px 20px}.auth-card-heading h2{font-size:24px}}
+html,body,#root{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}
+button,input,select,textarea{font:inherit}
+.auth-session{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.auth-session button{border:1px solid rgba(255,255,255,.3);border-radius:5px;background:transparent;color:#fff;padding:5px 7px;cursor:pointer;font-size:11px}
