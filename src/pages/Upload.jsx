@@ -126,4 +126,5 @@ export default function Upload({ addFiles, setPage, onRequireAuth }) {
       </div>
     </div>
   </>
+  )
 }
